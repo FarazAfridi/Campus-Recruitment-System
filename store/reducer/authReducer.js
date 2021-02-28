@@ -1,7 +1,8 @@
-import {LOGIN} from "../action/auth";
+import {LOGIN, SIGN_UP} from "../action/auth";
 
 const initialState = {
-    userType: null
+    userType: null,
+    token: null
 }
 
 export default (state = initialState, action) => {
@@ -9,7 +10,14 @@ export default (state = initialState, action) => {
       case LOGIN:
         return {
             ...state,
+            token: action.payload.token,
             userType: action.payload.userType
+        }
+      case SIGN_UP:
+        return {
+          ...state,
+          token: action.payload.token,
+          userType: action.payload.userType
         }
 
       default:
